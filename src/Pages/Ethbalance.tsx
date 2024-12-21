@@ -1,6 +1,5 @@
-import { Connection, PublicKey } from '@solana/web3.js';
 import { ethers } from 'ethers';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ETH_MAINNET } from '../config';
 
 const EthBalance: React.FC = () => {

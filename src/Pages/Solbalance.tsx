@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {Connection, PublicKey} from "@solana/web3.js"
 import { SOLANA_MAINNET } from '../config';
 const SolBalance: React.FC = () => {
