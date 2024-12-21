@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import {Connection, PublicKey} from "@solana/web3.js"
+import { SOLANA_MAINNET } from '../config';
 const SolBalance: React.FC = () => {
   const [balance, setBalance] = useState<string | null>(null);
   const [address, setAddress] = useState<string>('');
   const handleCheckBalance = async () => {
     try {
-      const connection = new Connection("https://api.devnet.solana.com");
+      const alchemySol = SOLANA_MAINNET;
+      const connection = new Connection(alchemySol,"confirmed");
       const balance = await connection.getBalance(new PublicKey(address));
-      setBalance(balance.toString());
+      const lamports = balance;
+      const solBalance = lamports / 1_000_000_000;
+
+      setBalance(solBalance.toString());
     } catch (error) {
       console.error('Error fetching balance:', error);
   }

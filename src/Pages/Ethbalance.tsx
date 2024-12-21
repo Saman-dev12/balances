@@ -1,11 +1,22 @@
+import { Connection, PublicKey } from '@solana/web3.js';
+import { ethers } from 'ethers';
 import React, { useState, useEffect } from 'react';
+import { ETH_MAINNET } from '../config';
 
 const EthBalance: React.FC = () => {
   const [balance, setBalance] = useState<string | null>(null);
   const [address, setAddress] = useState<string>('');
   const handleCheckBalance = async () => {
-    try {
-    
+    try {      
+      const alchemyEth = ETH_MAINNET
+      if (!address || !ethers.isAddress(address)) {
+        throw new Error("Invalid Ethereum wallet address.");
+      }
+      const provider = new ethers.JsonRpcProvider(alchemyEth);
+      const balanceWei = await provider.getBalance(address);
+      const ethBalance = ethers.formatEther(balanceWei);
+
+      setBalance(ethBalance.toString());
     } catch (error) {
       console.error('Error fetching balance:', error);
   }
