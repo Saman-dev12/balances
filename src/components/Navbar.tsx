@@ -18,6 +18,9 @@ const Navbar: React.FC = () => {
                     <NavLink to="/ethbalance" className="text-gray-300 hover:text-white">
                         ETH Balance
                     </NavLink>
+                    <NavLink to="/connecteth" className="text-gray-300 hover:text-white">
+                        ETH Connect
+                    </NavLink>
                 </div>
             </div>
         </nav>

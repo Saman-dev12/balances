@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import {Connection, PublicKey} from "@solana/web3.js"
-import { SOLANA_MAINNET } from '../config';
 const SolBalance: React.FC = () => {
   const [balance, setBalance] = useState<string | null>(null);
   const [address, setAddress] = useState<string>('');
   const handleCheckBalance = async () => {
     try {
-      const alchemySol = SOLANA_MAINNET;
+      const alchemySol = `https://solana-mainnet.g.alchemy.com/v2/your-api-key`;
       const connection = new Connection(alchemySol,"confirmed");
       const balance = await connection.getBalance(new PublicKey(address));
       const lamports = balance;

@@ -1,13 +1,12 @@
 import { ethers } from 'ethers';
 import React, { useState } from 'react';
-import { ETH_MAINNET } from '../config';
 
 const EthBalance: React.FC = () => {
   const [balance, setBalance] = useState<string | null>(null);
   const [address, setAddress] = useState<string>('');
   const handleCheckBalance = async () => {
     try {      
-      const alchemyEth = ETH_MAINNET
+      const alchemyEth = `https://eth-mainnet.g.alchemy.com/v2/your-api-key`;
       if (!address || !ethers.isAddress(address)) {
         throw new Error("Invalid Ethereum wallet address.");
       }
