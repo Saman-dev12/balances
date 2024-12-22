@@ -6,7 +6,7 @@ const EthBalance: React.FC = () => {
   const [address, setAddress] = useState<string>('');
   const handleCheckBalance = async () => {
     try {      
-      const alchemyEth = `https://eth-mainnet.g.alchemy.com/v2/your-api-key`;
+      const alchemyEth = `https://eth-mainnet.g.alchemy.com/v2/${import.meta.env.VITE_ALCHEMY_KEY}`;
       if (!address || !ethers.isAddress(address)) {
         throw new Error("Invalid Ethereum wallet address.");
       }

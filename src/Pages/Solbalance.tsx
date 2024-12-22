@@ -5,7 +5,7 @@ const SolBalance: React.FC = () => {
   const [address, setAddress] = useState<string>('');
   const handleCheckBalance = async () => {
     try {
-      const alchemySol = `https://solana-mainnet.g.alchemy.com/v2/your-api-key`;
+      const alchemySol = `https://solana-mainnet.g.alchemy.com/v2/${import.meta.env.VITE_ALCHEMY_KEY}`;
       const connection = new Connection(alchemySol,"confirmed");
       const balance = await connection.getBalance(new PublicKey(address));
       const lamports = balance;
