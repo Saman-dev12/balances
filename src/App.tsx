@@ -1,4 +1,4 @@
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Homepage from "./Pages/Homepage";
 import RootLayout from "./components/RootLayout";
 import Solbalance from "./Pages/Solbalance";
